@@ -23,8 +23,8 @@
     </header>
 
     <main>
-      <section class="hero" id="home">
-        <div class="container hero-content">
+      <section class="hero reveal" id="home">
+        <div class="container hero-content reveal">
           <div class="hero-copy">
             <p class="eyebrow">Hello, I am</p>
             <h2>A.S. Mohammed Hussain</h2>
@@ -34,13 +34,13 @@
             </p>
             <a class="button" href="#contact">Get in touch</a>
           </div>
-          <div class="hero-image">
+          <div class="hero-image reveal">
             <img src="profile.jpg" alt="Profile photo of A.S. Mohammed Hussain" />
           </div>
         </div>
       </section>
 
-      <section class="section" id="about">
+      <section class="section reveal" id="about">
         <div class="container">
           <h3>About Me</h3>
           <p>
@@ -55,11 +55,11 @@
         </div>
       </section>
 
-      <section class="section section-alt" id="skills">
+      <section class="section section-alt reveal" id="skills">
         <div class="container">
           <h3>Skills</h3>
           <div class="grid cards">
-            <div class="card">
+            <div class="card reveal">
               <h4>Programming</h4>
               <p>
                 C, C++, Java, Python
@@ -69,7 +69,7 @@
                 HTML, CSS, JavaScript
               </p>
             </div>
-            <div class="card">
+            <div class="card reveal">
               <h4>Database Management</h4>
               <p>
                 MySQL, SQL
@@ -79,7 +79,7 @@
                 Git, GitHub, VS Code
               </p>
             </div>
-            <div class="card">
+            <div class="card reveal">
               <h4>Core Subjects</h4>
               <p>
                 Data Structures, Algorithms, Operating Systems, DBMS
@@ -93,12 +93,12 @@
         </div>
       </section>
 
-      <section class="section" id="projects">
+      <section class="section reveal" id="projects">
         <div class="container">
           <h3>Projects</h3>
           <p class="section-note">Featured projects focus on practical systems that demonstrate programming fundamentals, data management, and user-facing application logic.</p>
           <div class="grid cards">
-            <div class="card">
+            <div class="card reveal">
               <h4>Library Management System</h4>
               <p>
                 Designed and developed a library management application to manage books, issue/return operations, and student records.
@@ -106,7 +106,7 @@
                 The project improved understanding of data structures, functions, file handling, and problem solving.
               </p>
             </div>
-            <div class="card">
+            <div class="card reveal">
               <h4>Online Quiz System</h4>
               <p>
                 Developed an interactive quiz application that presents multiple-choice questions, evaluates responses, and generates automatic scores.
@@ -118,7 +118,7 @@
         </div>
       </section>
 
-      <section class="section section-alt" id="contact">
+      <section class="section section-alt reveal" id="contact">
         <div class="container">
           <h3>Contact</h3>
           <p>
@@ -126,17 +126,17 @@
             show the best way to reach you.
           </p>
           <div class="contact-grid">
-            <div class="card contact-card">
+            <div class="card contact-card reveal">
               <h4>Email</h4>
-              <p>asmohammedh@gmail.com</p>
+              <p><a href="mailto:asmohammedh@gmail.com">asmohammedh@gmail.com</a></p>
             </div>
-            <div class="card contact-card">
+            <div class="card contact-card reveal">
               <h4>Phone</h4>
-              <p>+91 89216 19793</p>
+              <p><a href="tel:+918921619793">+91 89216 19793</a></p>
             </div>
-            <div class="card contact-card">
+            <div class="card contact-card reveal">
               <h4>Location</h4>
-              <p>Aluva, Ernakulam</p>
+              <p><a href="https://www.google.com/maps/search/?api=1&query=Aluva%2C+Ernakulam" target="_blank" rel="noopener noreferrer">Aluva, Ernakulam</a></p>
             </div>
           </div>
         </div>
@@ -148,5 +148,21 @@
         <p>© 2026 A.S. Mohammed Hussain. Portfolio built with HTML & CSS.</p>
       </div>
     </footer>
+
+    <script>
+      const revealElements = document.querySelectorAll('.reveal');
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+          });
+        },
+        { threshold: 0.2 }
+      );
+
+      revealElements.forEach(el => revealObserver.observe(el));
+    </script>
   </body>
 </html>
